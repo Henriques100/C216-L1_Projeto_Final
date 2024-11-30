@@ -14,6 +14,12 @@
         <label for="descricao">Descrição:</label>
         <textarea id="descricao" name="descricao">{{ tarefa.descricao }}</textarea>
         <br>
+        <label for="prazo">Prazo (HH:MM:SS):</label>
+        <input type="text" id="prazo" name="prazo" value="{{ tarefa.prazo }}">
+        <br>
+        <label for="diario">Diário:</label>
+        <input type="checkbox" id="diario" name="diario" {% if tarefa.diario %}checked{% endif %}>
+        <br>
         <label for="concluida">Concluída:</label>
         <input type="checkbox" id="concluida" name="concluida" {% if tarefa.concluida %}checked{% endif %}>
         <br>

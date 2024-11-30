@@ -20,7 +20,15 @@ def adicionar_tarefa():
     if request.method == 'POST':
         titulo = request.form['titulo']
         descricao = request.form['descricao']
-        payload = {'titulo': titulo, 'descricao': descricao, 'concluida': False}
+        prazo = request.form['prazo']
+        diario = request.form.get('diario') == 'on'
+        payload = {
+            'titulo': titulo,
+            'descricao': descricao,
+            'concluida': False,
+            'prazo': prazo,
+            'diario': diario
+        }
         response = requests.post(f"{API_BASE_URL}/api/v1/tarefas/", json=payload)
         if response.status_code == 201:
             return redirect(url_for('index'))
@@ -33,7 +41,15 @@ def atualizar_tarefa(tarefa_id):
         titulo = request.form['titulo']
         descricao = request.form['descricao']
         concluida = request.form.get('concluida') == 'on'
-        payload = {'titulo': titulo, 'descricao': descricao, 'concluida': concluida}
+        prazo = request.form['prazo']
+        diario = request.form.get('diario') == 'on'
+        payload = {
+            'titulo': titulo,
+            'descricao': descricao,
+            'concluida': concluida,
+            'prazo': prazo,
+            'diario': diario
+        }
         response = requests.patch(f"{API_BASE_URL}/api/v1/tarefas/{tarefa_id}", json=payload)
         if response.status_code == 200:
             return redirect(url_for('index'))
@@ -53,3 +69,14 @@ def excluir_tarefa(tarefa_id):
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000, host='0.0.0.0')
+
+#Rota para resetar o database
+@app.route('/reset-database', methods=['GET'])
+def resetar_database():
+    response = requests.delete(f"{API_BASE_URL}/api/v1/tarefas/")
+    
+    if response.status_code == 200  :
+        return render_template('confirmacao.html')
+    else:
+        return "Erro ao resetar o database", 500
+    
