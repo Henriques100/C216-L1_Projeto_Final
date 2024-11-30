@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Tarefa</title>
+</head>
+<body>
+    <h1>Atualizar Tarefa</h1>
+    <form method="POST">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" value="{{ tarefa.titulo }}" required>
+        <br>
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao">{{ tarefa.descricao }}</textarea>
+        <br>
+        <label for="concluida">Concluída:</label>
+        <input type="checkbox" id="concluida" name="concluida" {% if tarefa.concluida %}checked{% endif %}>
+        <br>
+        <button type="submit">Atualizar</button>
+    </form>
+</body>
+</html>

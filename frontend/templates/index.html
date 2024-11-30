@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .button {
+            padding: 8px 16px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: inline;
+        }
+        
+        ul {
+            list-style-type: none;  
+            padding: 0;  
+        }
+
+        li {
+            margin-bottom: 10px;  
+            display: block;  
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <a href="/adicionar" class="button">Adicionar Tarefa</a>
+    <ul>
+        <li>
+            {% for tarefa in tarefas %}
+                
+                <strong>{{ tarefa.titulo }}</strong> - {{ tarefa.descricao }}
+                    
+                <form method="POST" action="/excluir/{{ tarefa.id }}">
+                    <button type="submit" class="button">Excluir</button>
+                </form>
+
+                <a href="/atualizar/{{ tarefa.id }}" class="button">Editar</a> <br>
+            {% endfor %}
+        </li>
+    </ul>
+</body>
+</html>
