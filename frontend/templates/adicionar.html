@@ -4,23 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Tarefa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #082a4e;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #082a4e;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-label {
+            margin-right: 20px;
+        }
+
+        .button {
+            padding: 12px 25px;
+            background-color: #082a4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #1f962f;
+        }
+
+        @media (max-width: 600px) {
+            .button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Adicionar Tarefa</h1>
-    <form method="POST">
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo" required>
-        <br>
-        <label for="descricao">Descrição:</label>
-        <textarea id="descricao" name="descricao"></textarea>
-        <br>
-        <label for="prazo">Prazo (HH:MM:SS):</label>
-        <input type="text" id="prazo" name="prazo">
-        <br>
-        <label for="diario">Diário:</label>
-        <input type="checkbox" id="diario" name="diario">
-        <br>
-        <button type="submit">Adicionar</button>
-    </form>
+    <div class="container">
+        <form method="POST">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao"></textarea>
+
+            <label for="prazo">Prazo (HH:MM):</label>
+            <input type="text" id="prazo" name="prazo">
+
+            <div class="checkbox-label">
+                <label for="diario">Diário:</label>
+                <input type="checkbox" id="diario" name="diario">
+            </div>
+
+            <button type="submit" class="button">Adicionar</button>
+        </form>
+    </div>
 </body>
 </html>

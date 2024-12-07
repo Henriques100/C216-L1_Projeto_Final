@@ -5,8 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #082a4e;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
         .button {
-            padding: 8px 16px;
+            padding: 10px 20px;
             margin: 5px;
             background-color: #082a4e;
             color: white;
@@ -14,44 +39,92 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
         }
 
         .button:hover {
             background-color: #1f962f;
         }
 
-        form {
-            display: inline;
+        .actions {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        
+
         ul {
-            list-style-type: none;  
-            padding: 0;  
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
 
         li {
-            margin-bottom: 10px;  
-            display: block;  
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task-info {
+            margin-bottom: 10px;
+        }
+
+        .task-info strong {
+            color: #082a4e;
+        }
+
+        .task-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        form {
+            display: inline;
+        }
+
+        @media (max-width: 600px) {
+            .button {
+                font-size: 12px;
+                padding: 8px 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            li {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>To-Do List</h1>
-    <a href="/adicionar" class="button">Adicionar Tarefa</a>
-    <a href="/reset-database" class="button">Reiniciar Banco de Dados</a>
-    <ul>
-        <li>
+    <div class="container">
+        <div class="actions">
+            <a href="/adicionar" class="button">Adicionar Tarefa</a>
+            <a href="/reset-database" class="button">Reiniciar Banco de Dados</a>
+        </div>
+        <ul>
             {% for tarefa in tarefas %}
-                
-            <strong>{{ tarefa.titulo }}</strong> - {{ tarefa.descricao }}<br>
-            <strong>Prazo:</strong> {{ tarefa.prazo }}<br>
-            <strong>Diário:</strong> {{ 'Sim' if tarefa.diario else 'Não' }}<br>
-            <form method="POST" action="/excluir/{{ tarefa.id }}">
-                <button type="submit" class="button">Excluir</button>
-            </form>
-            <a href="/atualizar/{{ tarefa.id }}" class="button">Editar</a><br>
+            <li>
+                <div class="task-info">
+                    <strong>{{ tarefa.titulo }}</strong> - {{ tarefa.descricao }}<br>
+                    <strong>Prazo:</strong> {{ tarefa.prazo }}<br>
+                    <strong>Diário:</strong> {{ 'Sim' if tarefa.diario else 'Não' }}<br>
+                </div>
+                <div class="task-actions">
+                    <form method="POST" action="/excluir/{{ tarefa.id }}">
+                        <button type="submit" class="button">Excluir</button>
+                    </form>
+                    <a href="/atualizar/{{ tarefa.id }}" class="button">Editar</a>
+                </div>
+            </li>
             {% endfor %}
-        </li>
-    </ul>
+        </ul>
+    </div>
 </body>
 </html>

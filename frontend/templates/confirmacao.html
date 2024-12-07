@@ -3,14 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Resetado</title>
+    <title>Banco de Dados Resetado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #082a4e;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .message-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .message-container p {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .button {
+            padding: 12px 25px;
+            background-color: #082a4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #1f962f;
+        }
+
+        @media (max-width: 600px) {
+            .button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .message-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>O banco de dados foi resetado com sucesso!</h1>
+    <div class="message-container">
+        <h1>O banco de dados foi resetado com sucesso!</h1>
+        <p>Você será redirecionado para a página inicial em alguns segundos.</p>
+        <a href="/" class="button">Voltar para a página inicial</a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 3000);
+    </script>
 </body>
-<script>
-    setTimeout(() => {
-        window.location.href = "/";
-    }, 3000);
-</script>
 </html>
