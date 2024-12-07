@@ -1,24 +1,37 @@
-# Lista de tarefas
-O objetivo de nosso projeto, Lista de Tarefas, foi desenvolver uma aplicação capaz do usuário, adicionar atividades em uma lista de tarefas, para que ele possa desenvolver, no seu dia-a-dia.
+# 📋 Lista de Tarefas  
+Uma aplicação simples e funcional para gerenciar atividades, com esta aplicação, você pode adicionar tarefas à sua lista e acompanhar o progresso ao longo dos dias.
 
-# Execução do Projeto
-Para executar o nosso projeto, o executor deverá seguir os seguintes passos:
+---
 
-#   1. Executar o container
-Utilize o seguinte comando, para criação e inicialização do container: "docker-compose up --build"
+## 🚀 Como Executar o Projeto  
+Siga os passos abaixo para executar o projeto corretamente:
 
-#   2. Acesso do IP Web
-Para ter acesso aplicação no navegador, use o comando: "http://127.0.0.1:3000/"
+### 1️⃣ Executar o Container  
+1. Certifique-se de que o Docker está instalado e configurado na sua máquina.  
+2. Execute o seguinte comando para criar e iniciar o container:  
+   ```bash
+   docker-compose up --build
+   ```
 
-# Informações Integrantes
-Nesse parágrafo, conterá as informações das equipes, contendo: nome completo, matrícula e e-mail acadêmico.
-Integrante 1 - Nome: Raphael Henrique de Oliveira Centenário.
-Integrante 1 - matrícula: 16.
-Integrante 1 - e-mail acadêmico: raphael.h@ges.inatel.br
+### 2️⃣ Acessar a Aplicação  
+Após a inicialização do container, acesse o aplicativo no navegador através do endereço:  
+   👉 **[http://127.0.0.1:3000/](http://127.0.0.1:3000/)**
 
-Integrante 2 - Nome: Carl Betsa Costa.
-Integrante 2 - Matrícula: .
-Integrante 2 - e-mail acadêmico: carl.betsa@ges.inatel.br.
+---
 
-# Testes Postman
-Coloque as informações aqui.
+## 👥 Informações da Equipe  
+Abaixo estão os integrantes da equipe, com suas respectivas informações acadêmicas:  
+
+### Integrante 1  
+- **Nome:** Raphael Henrique de Oliveira Centenário  
+- **Matrícula:** 16  
+- **E-mail:** [raphael.h@ges.inatel.br](mailto:raphael.h@ges.inatel.br)
+
+### Integrante 2  
+- **Nome:** Carl Betsa Costa  
+- **Matrícula:** 59  
+- **E-mail:** [carl.betsa@ges.inatel.br](mailto:carl.betsa@ges.inatel.br)
+
+---
+
+## 🛠️ Testes com Postman  
