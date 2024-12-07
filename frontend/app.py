@@ -67,9 +67,6 @@ def excluir_tarefa(tarefa_id):
         return redirect(url_for('index'))
     return "Erro ao excluir tarefa", 500
 
-if __name__ == '__main__':
-    app.run(debug=True, port=3000, host='0.0.0.0')
-
 #Rota para resetar o database
 @app.route('/reset-database', methods=['GET'])
 def resetar_database():
@@ -79,4 +76,6 @@ def resetar_database():
         return render_template('confirmacao.html')
     else:
         return "Erro ao resetar o database", 500
-    
+ 
+if __name__ == '__main__':
+    app.run(debug=True, port=3000, host='0.0.0.0')
