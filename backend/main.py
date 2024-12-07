@@ -61,16 +61,6 @@ async def atualizar_tarefa(tarefa_id: int, tarefa: Tarefa):
     finally:
         await conn.close()
 
-@app.patch("/api/v1/tarefas/{tarefa_id}")
-async def atualizar_tarefa(tarefa_id: int, tarefa: Tarefa):
-    conn = await get_database()
-    try:
-        query = "UPDATE tarefas SET titulo = COALESCE($1, titulo), descricao = COALESCE($2, descricao), concluida = COALESCE($3, concluida) WHERE id = $4"
-        await conn.execute(query, tarefa.titulo, tarefa.descricao, tarefa.concluida, tarefa_id)
-        return {"message": "Tarefa atualizada com sucesso!"}
-    finally:
-        await conn.close()
-
 @app.delete("/api/v1/tarefas/{tarefa_id}")
 async def excluir_tarefa(tarefa_id: int):
     conn = await get_database()
