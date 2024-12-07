@@ -18,7 +18,7 @@ Integrante 1 - e-mail acadêmico: raphael.h@ges.inatel.br
 
 Integrante 2 - Nome: Carl Betsa Costa.
 Integrante 2 - Matrícula: .
-Integrante 1 - e-mail acadêmico: carl.betsa@ges.inatel.br.
+Integrante 2 - e-mail acadêmico: carl.betsa@ges.inatel.br.
 
 # Testes Postman
 Coloque as informações aqui.
